@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                {% if article_list %}
+                    {% for article in article_list %}
+                        <h2>{{ article.title }}</h2>
+                        <div>{{ article.text | safe }}</div>
+                        <div>{{ article.pub_date }}</div>
+                        {% for comment in article.comment %}
+                            <p>{{ comment }}</p>
+                        {% endfor %}
+
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
